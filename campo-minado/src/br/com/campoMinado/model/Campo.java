@@ -3,6 +3,8 @@ package br.com.campoMinado.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.campoMinado.exeption.ExplosaoExeption;
+
 public class Campo {
 	private final int linha;
 	private final int coluna;
@@ -36,5 +38,30 @@ public class Campo {
 			return false;
 		}
 	
+	}
+	
+	void alternarMarcacao() {
+		if(!aberto) {
+			marcado = !marcado;
+		}
+	}
+	
+	boolean abir() {
+		if(!aberto && !marcado) {
+			aberto = Boolean.TRUE;
+			if(minado) {
+				throw new ExplosaoExeption();
+			}
+			if(visinhancaSegura()) {
+				vizinhos.forEach(v -> v.abir());
+			}
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	boolean visinhancaSegura() {
+		return vizinhos.stream().noneMatch(v->v.minado);
 	}
 }
