@@ -17,6 +17,24 @@ public class Campo {
 		this.coluna = coluna;
 	}
 	boolean adicionarVizinhos(Campo vizinho) {
-		return false;
+		boolean linhaAtual = this.linha != vizinho.linha;
+		boolean colunaAtual = this.coluna != vizinho.coluna;
+		
+		boolean diagonal = linhaAtual && colunaAtual;
+		
+		int deltaLinha = Math.abs(linha - vizinho.linha);
+		int deltaColuna = Math.abs(coluna - vizinho.coluna);
+		int deltaGeral = deltaLinha + deltaColuna;
+		
+		if(deltaGeral == 1 && !diagonal) {
+			vizinhos.add(vizinho);
+			return true;
+		}else if(deltaGeral == 2 && diagonal) {
+			vizinhos.add(vizinho);
+			return true;
+		}else {
+			return false;
+		}
+	
 	}
 }
