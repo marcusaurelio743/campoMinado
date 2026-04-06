@@ -79,4 +79,15 @@ public class Campo {
 	 public boolean isAberto() {
 		 return aberto;
 	 }
+	 public boolean objetivoAlcancado() {
+		 boolean desvendado = ! minado && aberto;
+		 boolean protegido = minado && marcado;
+		 return desvendado ||protegido;
+	 }
+	 public void reiniciar() {
+		 marcado = false;
+		 minado = false;
+		 aberto = false;
+	 }
+	 
 }
