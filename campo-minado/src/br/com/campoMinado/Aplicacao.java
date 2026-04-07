@@ -1,15 +1,13 @@
 package br.com.campoMinado;
 
 import br.com.campoMinado.model.Tabuleiro;
+import br.com.campoMinado.view.TabuleiroConsole;
 
 public class Aplicacao {
 
 	public static void main(String[] args) {
 		Tabuleiro tabuleiro = new Tabuleiro(6, 6, 6);
-		tabuleiro.abrir(3, 3);
-		tabuleiro.marcar(4, 4);
-		tabuleiro.marcar(4, 5);
-		System.out.println(tabuleiro);
+		new TabuleiroConsole(tabuleiro);
 	}
 
 }
