@@ -105,5 +105,13 @@ public class Campo {
 			 return "?";
 		 }
 	 }
+	public int getLinha() {
+		return linha;
+	}
+	public int getColuna() {
+		return coluna;
+	}
+	 
+	 
 	 
 }
