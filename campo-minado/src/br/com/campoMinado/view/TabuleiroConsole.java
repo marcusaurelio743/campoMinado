@@ -24,7 +24,7 @@ public class TabuleiroConsole {
 				cicloJogo();
 				System.out.println("Outra partida? (S/n)");
 				String resposta = sc.nextLine();
-				if(resposta.equalsIgnoreCase("n")) {
+				if(resposta.equalsIgnoreCase("N")) {
 					continuar = false;
 				}else {
 					tabuleiro.reiniciar();
@@ -55,6 +55,7 @@ public class TabuleiroConsole {
 			}
 			System.out.println("Voce perdeu!!");
 		} catch (ExplosaoExeption e) {
+			System.out.println(tabuleiro);
 			System.out.println("Voce perdeu!!");
 		}
 	}
